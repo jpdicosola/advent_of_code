@@ -1,7 +1,6 @@
 col1 = []
 col2 = []
 
-# Read input from ARGV
 input_file = ARGV[0] || "./input.txt"
 
 IO.read(input_file).split("\n").each do |line|
