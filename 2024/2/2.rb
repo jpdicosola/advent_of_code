@@ -26,7 +26,16 @@ row_safe?(row)
 
 safe_count = 0
 data.each do |row|
-  safe_count += 1 if row_safe?(row)
+  if row_safe?(row)
+    safe_count += 1
+  else
+    row.each_with_index do |x, idx|
+      if row_safe?(row.reject.with_index { |_, i| i == idx })
+        safe_count += 1
+        break
+      end
+    end
+  end
 end
 
 puts "Safe Rows: #{safe_count}"
