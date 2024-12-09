@@ -1,3 +1,5 @@
+require "pry"
+
 def valid_order?(update, rules)
   positions = update.each_with_index.to_h
 
@@ -19,5 +21,7 @@ middle_pages = updates.filter_map do |update|
 end
 
 result = middle_pages.sum
+
+binding.pry
 
 puts "Sum of middle pages: #{result}"
